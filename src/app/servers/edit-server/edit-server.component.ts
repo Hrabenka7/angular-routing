@@ -17,8 +17,8 @@ export class EditServerComponent implements OnInit {
 
   ngOnInit() {
     // two ways of retriving params and fragments:
-    console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
+    console.log('edit-queryparams', this.route.snapshot.queryParams);
+    console.log('edit-fragments', this.route.snapshot.fragment);
     this.route.queryParams.subscribe();
     this.route.fragment.subscribe();
 
