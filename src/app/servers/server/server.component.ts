@@ -12,7 +12,8 @@ export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
 
   constructor(private serversService: ServersService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+            private router: Router) { }
 
   ngOnInit() {
     // retrieve params from the route
@@ -28,6 +29,10 @@ export class ServerComponent implements OnInit {
      this.route.params.subscribe((params: Params) => {
       this.server = this.serversService.getServer(+params['id']);
     });
+  }
+
+  onEdit() {
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
 }
